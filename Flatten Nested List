@@ -1,0 +1,13 @@
+def flatten(lst):
+    output = []
+    def instance(i):
+        if not isinstance(i,list):
+            output.append(i)
+            return 
+        for item in i:
+            instance(item)
+    instance(lst)
+    return output
+    
+assert flatten([1, 2, [3]]) == [1,2,3]
+assert flatten([1, [2, [3]]]) == [1,2,3]
