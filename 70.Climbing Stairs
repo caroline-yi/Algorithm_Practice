@@ -1,0 +1,20 @@
+# LeetCode 70. Climbing Stairs: https://leetcode.com/problems/climbing-stairs/
+# Recursive Solution
+
+class Solution:
+        
+    def climbStairs(self, n: int) -> int:
+        dic = {}
+        def inner(n):
+            if n == 0:
+                return 0
+            elif n == 1:
+                return 1
+            elif n == 2:
+                return 2
+            elif n in dic:
+                return dic.get(n)
+            else:
+                dic[n] = inner(n-1) + inner(n-2)
+                return inner(n-1) + inner(n-2)
+        return inner(n)
